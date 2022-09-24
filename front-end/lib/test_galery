@@ -1,0 +1,32 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+
+class Galery extends StatefulWidget {
+  const Galery({Key? key}) : super(key: key);
+
+  @override
+  State<Galery> createState() => _GaleryState();
+}
+
+class _GaleryState extends State<Galery> {
+  late File image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'ook',
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+      body: Column(children: [
+        MaterialButton(
+          onPressed: () {},
+          child: Icon(Icons.add),
+        ),
+      ]),
+    );
+  }
+}

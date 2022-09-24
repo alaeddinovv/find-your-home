@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:agence/home/cubitHome/CubitHome.dart';
+
+Widget defaultForm(
+        {controller,
+        int maxline = 1,
+        Widget? suffix,
+        required context,
+        String? sufixText,
+        required TextInputType type,
+        required Function valid,
+        Text? lable,
+        Icon? prefixIcon,
+        IconButton? sufixIcon,
+        TextInputAction? textInputAction,
+        bool obscureText = false,
+        String? valeurinitial,
+        Function? onFieldSubmitted}) =>
+    TextFormField(
+      initialValue: valeurinitial,
+      textInputAction: textInputAction,
+      style: TextStyle(
+          color:
+              CupitHome.get(context).dartSwitch ? Colors.white : Colors.black),
+      onFieldSubmitted: (k) {
+        onFieldSubmitted!();
+      },
+      validator: (String? value) {
+        return valid(value);
+      },
+      decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.grey),
+            borderRadius: BorderRadius.circular(50),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          label: lable,
+          prefixIcon: prefixIcon,
+          suffixIcon: sufixIcon,
+          suffix: suffix,
+          suffixText: sufixText),
+      controller: controller,
+      maxLines: maxline,
+      keyboardType: type,
+      obscureText: obscureText,
+    );
+
+void Changepage(context, Widget ala) => Navigator.pushAndRemoveUntil(
+    context, MaterialPageRoute(builder: (context) => ala), (route) => false);
